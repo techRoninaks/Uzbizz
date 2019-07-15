@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Manage Pages - Uzbizz Admin</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <script src="assets/js/scripts.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="gold" data-image="assets/img/sidebar-5.jpg" w3-include-html="sidenav.html">
+    </div>
+
+    <div class="main-panel">
+		<nav class="navbar navbar-default navbar-fixed" w3-include-html="header.html">
+        </nav>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Enquiry Table</h4>
+                        <p class="category">The entries for the contact, subscribtion and services will be found here.</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Message</th>
+                                <th>News Letter</th>
+                                <th>Purpose</th>
+                                <th>Status</th>
+                            </thead>
+                            <tbody id="tableBodyEnquiry">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer" w3-include-html="footer.html">    
+        </footer>
+
+
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Charts Plugin -->
+	<script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="assets/js/demo.js"></script>
+    <style>
+            /* Style The Dropdown Button */
+            .dropbtn {
+              background-color: #CFBC81;
+              color: white;
+              padding: 12px;
+              font-size: 16px;
+              border: none;
+              cursor: pointer;
+              border-radius: 5px;
+
+            }
+            
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+              position: relative;
+              display: inline-block;
+            }
+            
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: #f9f9f9;
+              min-width: 160px;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              z-index: 1;
+            }
+            
+            /* Links inside the dropdown */
+            .dropdown-content a {
+              color: black;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+            }
+            
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {background-color: #f1f1f1}
+            
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+            
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {
+              background-color: rgb(207, 193, 137);
+            }
+            </style>
+    <script type="text/javascript">
+        var userId = "";
+        var response = {};
+        var response2 = {};
+        var dropdown;
+        var html1 = "";
+
+        // document.getElementById("fileToUpload").addEventListener("change", readFile); //To upload image
+        
+        $(document).ready(function(){
+            if(!checkCookie("empId")){
+                cancelFunc(-1);
+            }
+    	});
+        includeHTML();
+        window.onload = function(){
+           setTimeout(function(){
+               activateSideNav();
+           }, 100);
+           setTimeout(function(){
+               loadProfile();
+           }, 100);
+        };
+        // showData();
+        getDropDown();
+        getEnquiryData();
+
+
+        function toggleTabs(type){
+            
+            $('#normBg').hide();
+            $('#editHome').hide();
+            $('#editAbout').hide();
+            $('#editServices').hide();
+            $('#editInsights').hide();
+            $('#editLeadership').hide();
+            $('#editContact').hide();
+            $('#'+type).show();
+
+            switch(type){
+                case "editHome":    $('#btnHome').removeClass().addClass('btn btn-fill');
+                                    $('#btnAbout').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnServices').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnInsights').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnLeadership').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnContact').removeClass().addClass('btn btn-info btn-fill');
+                                break;
+                case "editAbout":   $('#btnHome').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnAbout').removeClass().addClass('btn btn-fill');
+                                    $('#btnServices').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnInsights').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnLeadership').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnContact').removeClass().addClass('btn btn-info btn-fill');
+                                break;
+                case "editServices":$('#btnHome').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnAbout').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnServices').removeClass().addClass('btn btn-fill');
+                                    $('#btnInsights').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnLeadership').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnContact').removeClass().addClass('btn btn-info btn-fill');
+                                break;
+                case "editInsights":$('#btnHome').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnAbout').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnServices').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnInsights').removeClass().addClass('btn btn-fill');
+                                    $('#btnLeadership').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnContact').removeClass().addClass('btn btn-info btn-fill');
+                                break;
+                case "editLeadership":$('#btnHome').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnAbout').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnServices').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnInsights').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnLeadership').removeClass().addClass('btn btn-fill');
+                                    $('#btnContact').removeClass().addClass('btn btn-info btn-fill');
+                                break;
+                case "editContact": $('#btnHome').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnAbout').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnServices').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnInsights').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnLeadership').removeClass().addClass('btn btn-info btn-fill');
+                                    $('#btnContact').removeClass().addClass('btn btn-fill');
+                                break;
+            }
+        }
+        
+        function editData(pageToEdit,condition){
+            if(condition){
+                $('#editBtn'+pageToEdit).show();
+                $('#submitBtn'+pageToEdit).hide();
+                $('#cancelBtn'+pageToEdit).hide();
+            } else {
+                $('#editBtn'+pageToEdit).hide();
+                $('#submitBtn'+pageToEdit).show();
+                $('#cancelBtn'+pageToEdit).show();
+            }
+            
+            switch(pageToEdit){
+                case "editHome":    $('#inpTitle').prop('disabled',condition);
+                                    $('#inpHomeLoc').prop('disabled',condition);
+                                    break;
+                case "editAbout":   $('#inpAbout').prop('disabled', condition);
+                                    $('#inpMission').prop('disabled', condition);
+                                    $('#inpVision').prop('disabled', condition);
+                                    break;
+                case "editServices": $('#inpServices').prop('disabled', condition);
+                                     $('#inpServQuote').prop('disabled', condition);
+                                     $('#inpService1').prop('disabled', condition);
+                                     $('#inpService2').prop('disabled', condition);
+                                     $('#inpService3').prop('disabled', condition);
+                                     $('#inpService4').prop('disabled', condition);
+                                    break;
+                case "editInsights": $('#inpInsights').prop('disabled', condition);
+                                     $('#inpInsQuote').prop('disabled', condition);
+                                     $('#inpInsHead1').prop('disabled', condition);
+                                     $('#inpInsDesc1').prop('disabled', condition);
+                                     $('#inpInsHead2').prop('disabled', condition);
+                                     $('#inpInsDesc2').prop('disabled', condition);
+                                     $('#inpInsHead3').prop('disabled', condition);
+                                     $('#inpInsDesc3').prop('disabled', condition);
+                                    break;
+                case "editLeadership": $('#inpLeaderName').prop('disabled', condition);
+                                       $('#inpLeaderAbout').prop('disabled', condition);
+                                       $('#fileToUpload').prop('disabled',condition);
+                                    break;
+                case "editContact": $('#inpContactReceiver').prop('disabled', condition);
+                                    $('#inpContactPerson').prop('disabled', condition);
+                                    $('#inpContactPhone').prop('disabled', condition);
+                                    $('#inpContactEmail').prop('disabled', condition);
+                                    $('#inpContactAddress').prop('disabled', condition);
+                                    $('#inpContactMap').prop('disabled',condition);
+                                    $('#aContactLink').prop('disabled',condition);
+                                    break;
+            }
+        }
+
+        function showData() {
+            $.ajax({
+                type: 'GET',
+                dataType:'json',
+                url: 'assets/php/getAllProperties.php', 
+                success: function(responseData) {
+                    if(responseData.data.success == "successful"){
+                        response = responseData.data.result;
+                        
+                        $('#inpTitle').val(response[0].value);
+                        $('#inpHomeLoc').val(response[21].value);
+                        $('#homeImgPreview').attr("src","../"+response[22].value);
+                        $('#inpAbout').val(response[3].value);
+                        $('#inpMission').val(response[4].value);
+                        $('#inpVision').val(response[5].value);
+                        $('#inpLeaderName').val(response[6].value);
+                        $('#inpLeaderAbout').val(response[7].value);
+                        $('#imgPreview').attr("src","../"+response[8].value);
+                        $('#inpServices').val(response[9].value);
+                        var serviceItems =  (response[10].value).split("!~!@");
+                        $('#inpService1').val(serviceItems[1]);
+                        $('#inpService2').val(serviceItems[2]);
+                        $('#inpService3').val(serviceItems[3]);
+                        $('#inpService4').val(serviceItems[4]);
+                        $('#inpServQuote').val(response[11].value);
+                        $('#inpContactAddress').val(response[12].value);
+                        $('#inpContactPerson').val(response[13].value);
+                        $('#inpContactPhone').val(response[14].value);
+                        $('#inpContactEmail').val(response[15].value);
+                        $('#inpContactReceiver').val(response[16].value);
+                        var place_ref = (response[17].value).split("place_id:");
+                        var place_id = place_ref[1].split('"');
+                        // console.log(place_id[0]);
+                        $('#inpContactMap').val(place_id[0]);
+                        $('#inpInsights').val(response[18].value);
+                        var insightItems =  (response[19].value).split("!~");
+                        var insightItemInner1 = insightItems[0].split("!@");
+                        var insightItemInner2 = insightItems[1].split("!@");
+                        var insightItemInner3 = insightItems[2].split("!@");
+                        $('#inpInsHead1').val(insightItemInner1[0]);
+                        $('#inpInsDesc1').val(insightItemInner1[1]);
+                        $('#inpInsHead2').val(insightItemInner2[0]);
+                        $('#inpInsDesc2').val(insightItemInner2[1]);
+                        $('#inpInsHead3').val(insightItemInner3[0]);
+                        $('#inpInsDesc3').val(insightItemInner3[1]);
+                        $('#inpInsQuote').val(response[20].value);
+
+                   }else{
+                        demo.showNotification('top','center', 'No data to display', 4);
+                        // window.location = window.location.origin;
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    demo.showNotification('top','center', 'Something went wrong', 4);
+                    // window.location = window.location.origin;
+                }
+            });
+        }
+
+        function getNewsLetter(data){
+            if(data == "0"){
+                return "no";
+            }
+            else if(data == "1"){
+                return "yes";
+            }
+        }
+
+        function getMessage(data, count){
+            if(data.length >0){
+                htmlMessage = "<p>"+data.substring(0, 30);
+                htmlMessage = htmlMessage +"<span id='span"+count+"' onclick='seeMore("+count+")'>...</span><span id='text"+count+"' style='display:none'>"+data.substring(30, data.length)+"</span><span id='showless"+count+"' onclick='seeMore("+count+")' style='color:rgb(200, 86, 86);display:none'>Show Less</span></p>";
+                return htmlMessage;
+            }
+            else{
+                htmlMessage = "No Message";
+                return htmlMessage;
+            }
+        }
+
+        function seeMore(id){
+            if(document.getElementById('text'+id).style.display == 'none'){
+                document.getElementById('span'+id).style.display = 'none';
+                document.getElementById('text'+id).style.display = 'inline';
+                document.getElementById('showless'+id).style.display = 'block';
+            }
+            else{
+                document.getElementById('span'+id).style.display = 'inline';
+                document.getElementById('text'+id).style.display = 'none';
+                document.getElementById('showless'+id).style.display = 'none';
+            }
+        }
+
+        function getdropdown(id, status){
+            if(status == ""){
+                html ="<div class='dropdown'>"+
+                "<button id='dropDown"+id+"' class='dropbtn'>"+"New"+"</button>"+
+                "<div class='dropdown-content'>"+
+                    dropContent(id)
+                +"</div></div>";
+            }
+            else{
+                html ="<div class='dropdown'>"+
+                "<button id='dropDown"+id+"' class='dropbtn'>"+status+"</button>"+
+                "<div  class='dropdown-content'>"+
+                    dropContent(id)
+                +"</div></div>";
+            }
+            // dropContent()
+            return html;
+        }
+
+        function dropContent(count){
+            html1= "";
+            for(j=0;j<dropdown.length;j++){
+                html1 = html1 + "<a onclick='replaceWords("+count+",&quot;"+dropdown[j]['status']+"&quot;)'>"+dropdown[j]['status']+"</a>"
+            }
+            return html1;
+        }
+
+        function replaceWords(count1, words){
+            document.getElementById('dropDown'+count1).innerText = words;
+            $.ajax({
+                type: 'POST',
+                dataType:'json',
+                url: 'assets/php/postStatus.php', 
+                data: "status="+words+"&id="+count1,
+                success: function(responseData) {
+                    if(responseData.data == "1"){
+                        // response = responseData.data.result;
+                   }else{
+                        demo.showNotification('top','center', 'Server Error Try again later', 4);
+                        // window.location = window.location.origin;
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    demo.showNotification('top','center', 'Something went wrong', 4);
+                    // window.location = window.location.origin;
+                }
+            });
+        }
+
+
+
+        function getEnquiryData(){
+            $.ajax({
+                type: 'GET',
+                dataType:'json',
+                url: 'assets/php/getenquirydata.php', 
+                success: function(responseData) {
+                    if(responseData.data.success == "successful"){
+                        response = responseData.data.result;
+                        // console.log(response);
+                        templ = "";
+                        // dropContent();
+                        for(i = 0; i< response.length; i++){
+                            // dropContent(i)
+                            templ = templ + "<tr>"+
+                                "<td>"+response[i]['id']+"</td>"+
+                                "<td>"+response[i]['name']+"</td>"+
+                                "<td>"+response[i]['email']+"</td>"+
+                                "<td>"+response[i]['phone']+"</td>"+
+                                "<td>"+getMessage(response[i]['message'], i)+"</td>"+
+                                "<td>"+getNewsLetter(response[i]['isSubscribe'])+"</td>"+
+                                "<td>"+response[i]['purpose']+"</td>"+
+                                "<td>"+getdropdown((i+1), response[i]['status'])+"</td>"+
+                                "</tr>";
+                        }
+                        document.getElementById('tableBodyEnquiry').innerHTML = templ;
+                        // console.log(templ);
+
+                   }else{
+                        demo.showNotification('top','center', 'No data to display', 4);
+                        // window.location = window.location.origin;
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    demo.showNotification('top','center', 'Something went wrong', 4);
+                    // window.location = window.location.origin;
+                }
+            });
+        }
+
+
+        function getDropDown(){
+            $.ajax({
+                type: 'GET',
+                dataType:'json',
+                url: 'assets/php/getDropDown.php', 
+                success: function(responseData) {
+                    if(responseData.data.success == "successful"){
+                        dropdown = responseData.data.result;
+                        // for(i=0;i<dropdown.length;i++){
+                        //     html1 = html1 + "<a href='#'>"+dropdown[i]['status']+"</a>"
+                        // }
+                    }
+                    else{
+                        demo.showNotification('top','center', 'No data to display', 4);
+                        // window.location = window.location.origin;
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    demo.showNotification('top','center', 'Something went wrong', 4);
+                    // window.location = window.location.origin;
+                }
+            });
+        }
+        
+        
+	</script>
+
+</html>

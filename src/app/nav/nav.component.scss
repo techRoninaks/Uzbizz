@@ -1,0 +1,81 @@
+$screen-lg-min: 991px;
+$screen-lg-max: 992px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+
+nav {
+    justify-self: right;
+    // background: transparent;
+    // position: absolute;
+    background: url("/assets/image/uz-bg.jpg");
+
+    @include lg-min {
+        display: none;
+    }
+
+
+    ul {
+        list-style-type: none;
+        margin: 0; padding: 0;
+        border-bottom: 1px solid #8a8a8acc;
+        padding-top: 10px;
+        letter-spacing: 1px;
+
+        .active{
+            border-bottom: 1px solid white;
+            // padding-bottom: 9px;
+            a{
+                font-weight: bold;
+                color: white;
+            }
+        }
+
+        li {
+            float: left;
+            // color: #fffc;
+
+            a {
+                padding: 1em;
+                text-transform: uppercase;
+                font-size: .74em;
+                color: #fffc;
+                font-family: HelveticaLight;
+
+                &:hover {
+                    font-weight: bold;
+                    // font-size: .8em;
+                }
+            }
+        }
+    }
+}
+
+.logoImage {
+    height: 4em;
+    position: absolute;
+    top: 29px;
+    left: 40px;
+    z-index: 999;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .custom-toggler.navbar-toggler {
+    border-color: rgb(255, 255, 255);
+  } 
+
+  .navbar-collapse{
+      z-index: 555 !important;
+  }

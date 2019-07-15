@@ -1,0 +1,108 @@
+$screen-lg-min: 991px;
+$screen-lg-max: 992px;
+$screen-rd:737px;
+$padding: 80px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin rnd {
+    @media (max-width: #{$screen-rd}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+.sidemenu-container{
+    width: 60px;
+    background: transparent;
+    position: absolute;
+    bottom: 7.5vh;
+    z-index: 9;
+
+    @include rnd {
+        width: 60px;
+        background: transparent;
+        position: absolute;
+        bottom: 10.5vh;
+        right: 20px;
+        z-index: 222;
+    }
+
+    @include lg-max {
+        left: 27px;
+    }
+
+    p{
+        color: #fffc;;
+        // writing-mode: sideways-lr;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        text-transform: uppercase;
+        font-size: .8em;
+        letter-spacing: 1px;
+
+        @include lg-min {
+            display: none;
+        }
+        // -webkit-animation: bounceInfinite 2s infinite ease-in-out;
+        // animation: bounceInfinite 2s infinite ease-in-out;
+    }
+
+    
+    .vl {
+        position: relative;
+        width: 1px;
+        height: 90px;
+        background-color: rgba(255, 255, 255, 0.5);
+        overflow: hidden;
+        left: 38%;
+        margin-bottom: 10px;
+
+        @include lg-min {
+            display: none;
+        }
+
+
+        span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-100%);
+            -webkit-transform: translateY(-100%);
+            -webkit-animation: scrollInfinite 2s infinite ease-in-out;
+            animation: scrollInfinite 2s infinite ease-in-out;
+        }
+      }
+
+      .icon-container{
+        position: relative;
+        left: -3px;
+
+
+    
+        .icon-fb{
+            width: 23px;
+            margin: 15px;
+            padding: 2px;
+
+            @include rnd {
+                $hei:40px;
+                width: $hei;
+                margin-top: $hei;
+                margin-bottom: $hei;
+            }
+          }
+      }
+}
+

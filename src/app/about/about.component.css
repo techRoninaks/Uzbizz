@@ -1,0 +1,110 @@
+.main-section {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "menu left right pad";
+  -ms-grid-columns: 110px 45% 43% 55px;
+      grid-template-columns: 110px 45% 43% 55px;
+  z-index: 555;
+}
+
+@media (max-width: 991px) {
+  .main-section {
+    z-index: 115;
+    position: relative;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+        grid-template-areas: "left" "right";
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+
+.main-section h3 {
+  display: inline;
+  font-family: HelveticaBlk;
+}
+
+.main-section .dvMission {
+  background: #f2f2f2;
+  padding: 40px;
+  height: 100%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: right;
+  display: table;
+}
+
+@media (max-width: 991px) {
+  .main-section .dvMission {
+    margin: auto;
+    height: 100px;
+    width: 91%;
+    margin-top: 20%;
+    margin-bottom: 30px;
+  }
+}
+
+.main-section .dvMission .subdvMission {
+  margin-top: 10%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media (max-width: 991px) {
+  .main-section .dvMission .subdvMission {
+    margin-top: 0;
+  }
+}
+
+.main-section .dvMission .subdvMission p {
+  text-align: justify;
+  font-family: HelveticaLight;
+  font-size: 0.9em;
+  padding-top: 10px;
+  color: #6b6b6bcc;
+}
+
+.main-section .dvAbout {
+  border-left: 2px solid #f2f2f2;
+  padding: 20px;
+  height: 87.7vh;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: left;
+}
+
+@media (max-width: 991px) {
+  .main-section .dvAbout {
+    padding: 0;
+  }
+}
+
+.main-section .dvAbout .contain {
+  padding: 20px;
+  width: 86%;
+  display: block;
+  margin: auto;
+  text-align: justify;
+}
+
+.main-section .dvAbout .contain p {
+  font-family: HelveticaLight;
+  font-size: 0.9em;
+  padding-top: 10px;
+  color: #6b6b6bcc;
+}
+
+@media (max-width: 991px) {
+  .main-section .dvAbout .contain {
+    margin-top: 20px;
+  }
+}
+
+.main-section .dvAbout .image-contain {
+  margin-top: 3%;
+}
+/*# sourceMappingURL=about.component.css.map */

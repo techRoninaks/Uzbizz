@@ -1,0 +1,72 @@
+nav {
+  -ms-grid-column-align: right;
+      justify-self: right;
+  background: url("/assets/image/uz-bg.jpg");
+}
+
+@media (min-width: 992px) {
+  nav {
+    display: block;
+  }
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #8a8a8acc;
+  padding-top: 10px;
+  letter-spacing: 1px;
+}
+
+nav ul .active {
+  border-bottom: 1px solid white;
+}
+
+nav ul .active a {
+  font-weight: bold;
+  color: white;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  padding: 1em;
+  text-transform: uppercase;
+  font-size: .74em;
+  color: #fffc;
+  font-family: HelveticaLight;
+}
+
+nav ul li a:hover {
+  font-weight: bold;
+}
+
+.logoImage {
+  height: 4em;
+  position: absolute;
+  top: 29px;
+  left: 40px;
+  z-index: 999;
+}
+
+@media (min-width: 992px) {
+  .logoImage {
+    display: none;
+  }
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: white;
+}
+
+.navbar-collapse {
+  z-index: 555 !important;
+}
+/*# sourceMappingURL=navbarlite.component.css.map */

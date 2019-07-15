@@ -1,0 +1,103 @@
+<!-- <app-navbar></app-navbar>
+<app-sidemenusub></app-sidemenusub> -->
+<div class="main-section">
+
+
+    <span></span>
+    <div class="trigger" inViewport [inViewportOptions]="{ threshold: [0] }" 
+    (inViewportAction)="onIntersection($event)"></div>
+  <!-- Contact  Text -->
+  <div class="text-contact" [@aboutAnimationFadeUp2]='state'>
+    <div class="text"><strong>contact</strong> us</div>
+  </div>
+
+  <!-- form content -->
+  <div class="form-contact" [@aboutAnimationFadeUp1]='state'>
+      <form [formGroup]="messageForm" (ngSubmit)="onSubmit()" novalidate>
+
+          <h5 *ngIf="success">Your query has been sent!</h5>
+      
+          <input type="text" formControlName="name" placeholder="Name">
+          <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+            <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+          </div>
+
+          <input type="email" formControlName="mail" placeholder="Mail ID">
+          <div *ngIf="submitted && messageForm.controls.mail.errors" class="error">
+            <div *ngIf="messageForm.controls.mail.errors.required">Your mail is required</div>
+          </div>
+
+          <input type="number" pattern="[0-9]{10}" formControlName="phone" placeholder="Phone number">
+          <div *ngIf="submitted && messageForm.controls.phone.errors" class="error">
+            <div *ngIf="messageForm.controls.phone.errors.required">Your phone is required</div>
+          </div>
+      
+
+          <textarea formControlName="message" placeholder="Type your query here..."></textarea>
+          <div *ngIf="submitted && messageForm.controls.message.errors" class="error">
+            <div *ngIf="messageForm.controls.message.errors.required">A message is required</div>
+          </div>
+
+          <div class="dropdown" style="">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Purpose of Visit
+            </button>
+            <input type="checkbox" style="display: none;" formControlName="Purpose">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+              <a class="dropdown-item" *ngFor = "let l of dropitems"  (click) = "replaceValue(l.dropitem)">{{l.dropitem}}</a>
+              <!-- <a class="dropdown-item"  (click) = "replaceValue('Another action')">Another action</a>
+              <a class="dropdown-item"  (click) = "replaceValue('Somethinge Is here')">Something else here</a> -->
+            </div>
+          </div>
+          <div *ngIf="submitted && messageForm.controls.Purpose.errors" class="error">
+            <div *ngIf="messageForm.controls.Purpose.errors.required">A purpose is required</div>
+          </div>
+
+          <div class="" style="margin-top: 18px;">
+            <p>SERVICES REQUIRED</p>
+            <label class="container1">Translator
+              <input type="checkbox" formControlName="Translator">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Education
+              <input type="checkbox" formControlName="Education">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Sell
+              <input type="checkbox" formControlName="Sell">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Guide
+              <input type="checkbox" formControlName="Guide">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container1">Buy
+              <input type="checkbox" formControlName="Buy">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+      
+          <input type="submit" value="Submit" class="cta">
+        
+        </form>
+  </div>
+  <!-- grey portion and image -->
+  <div class="flex-grey" [@contactAnimationSlideIn] = 'slide'>
+    <div class="map-image" [@aboutAnimationFadeUp3]='state' [innerHTML] = 'map'>
+      <!-- <iframe class="map" id="iframeid" style="border:0;width: 100%;"  allowfullscreen="" frameborder="0"></iframe> -->
+      <!-- <iframe class="map" id="iframeid" style="border:0;width: 100%;"  src='https://www.google.com/maps/embed/v1/place?key=AIzaSyA0Dx_boXQiwvdz8sJHoYeZNVTdoWONYkU&amp;q=place_id:ChIJM_cmLI1CXz4RFBToDeJvVac' allowfullscreen="" frameborder="0"></iframe> -->
+    </div>
+    <div class="contact-content" [@aboutAnimationFadeUp3]='state'>
+      <img class="icon" src="assets/image/ic_uz_location_cotact.png"> 
+      <p>{{ dynamic.address }}</p>
+
+      <img class="icon" src="assets/image/ic_uz_phone_black.png"> 
+      <p>{{ dynamic.contact_person }}</p>
+      <p>Phone: {{ dynamic.contact_phone }}</p>
+
+      <img class="icon-mail" src="assets/image/ic_uz_mail_contact.png"> 
+      <p>Email: {{ dynamic.contact_email }}</p>
+    </div>
+  </div>
+</div>

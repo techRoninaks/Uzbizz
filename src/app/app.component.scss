@@ -1,0 +1,625 @@
+// router-outlet{
+//     // app-home{
+//     //     position: absolute;
+//     //     width: 100%;
+//     //     height: 100vh;
+//     //     top: 0;
+//     //     left: 0;
+//     //     z-index: -1;
+//     // }
+
+// }
+$screen-lg-min: 991px;
+$screen-lg-max: 992px;
+$screen-rnd: 555px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+ @mixin rnd {
+    @media (max-width: #{$screen-rnd}) {
+        @content;
+    }
+ }
+
+ .web-view{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+
+
+    @include lg-min {
+        display: none;
+        position: absolute;
+    }
+
+    .floatEnquiry{
+        color: #f2f2f299;
+        background: transparent;
+        border: 1px solid snow;
+        position: fixed;
+        bottom: 22px;
+        right: 18px;
+        z-index: 2000;
+        border-radius: 11px;
+        padding: 6px;
+        padding-left: 10px;
+        padding-right: 10px;
+        transition: all 100ms;
+    }
+    .floatActive{
+        color: #060606b3;
+        background: #ffffffb3;
+        border: 2px solid #060606b3;
+    }
+ }
+
+ .web-view{
+    @include lg-min {
+        display: none;
+        position: absolute;
+    }
+ }
+
+ .mobile-view{
+    @include lg-max {
+        display: none;
+    }
+ }
+
+ $screen-lg-min: 991px;
+$screen-lg-max: 992px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+
+nav {
+    justify-self: right;
+    // background: transparent;
+    // position: absolute;
+    background: url("../assets/image/uz-bg.jpg");
+
+    // @include lg-max {
+    //     display: none;
+    // }
+
+    ul {
+        list-style-type: none;
+        margin: 0; padding: 0;
+        border-bottom: 1px solid #8a8a8acc;
+        padding-top: 10px;
+        letter-spacing: 1px;
+
+        .active{
+            border-bottom: 1px solid white;
+            // padding-bottom: 9px;
+            a{
+                font-weight: bold;
+                color: white;
+            }
+        }
+
+        li {
+            float: left;
+            cursor: pointer;
+            // color: #fffc;
+
+            a {
+                padding: 1em;
+                text-transform: uppercase;
+                font-size: .74em;
+                color: #fffc;
+                font-family: HelveticaLight;
+
+                &:hover {
+                    font-weight: bold;
+                    // font-size: .8em;
+                }
+            }
+        }
+    }
+}
+.navbar2{
+    background: #040F15 !important;
+}
+
+.logoImage {
+    height: 4em;
+    position: absolute;
+    top: 29px;
+    left: 40px;
+    z-index: 999;
+    transition: 200ms;
+
+    @include lg-min {
+        height: 2em !important;
+    }
+}
+
+.logoImage2{
+    height: 3em ;
+    position: absolute;
+    top: 6px;
+    @include lg-min {
+        height: 2em !important;
+    }
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .custom-toggler.navbar-toggler {
+    border-color: rgb(255, 255, 255);
+  } 
+
+  .navbar-collapse{
+      z-index: 555 !important;
+  }
+
+
+  input{
+    appearance: textfield;
+  }
+
+   /* The Modal (background) */
+.modal {
+    display: none;/* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index:  9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: none; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: max-content; /* Could be more or less, depending on screen size */
+    display: grid;
+    grid-template-areas: "img form";
+    grid-auto-columns: 20% 80%; 
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include rnd {
+        width:90%;
+    }
+
+    .ModelImg{
+        grid-area: img;
+
+        .modelImg{
+            height: 150px;
+            margin-top: -1px;
+
+            @include rnd {
+                height: 75px;
+            }
+        }
+    }
+
+    .ModelForm{
+        grid-area: form;
+        margin-left: 45px;
+        width: 315px;
+        position: relative;
+        left: 30px;
+
+        @include rnd {
+            width: 62%;
+        }
+
+        label{
+            text-transform: uppercase;
+            font-size: 15px;
+            @include rnd {
+                margin-left: -75px;
+            }
+        }
+
+        h3{
+            margin-top: 34px;
+            font-family: HelveticaBold;
+        }
+        .modelClose{
+            height: 25px;
+            float: right;
+            margin-top: 20px;
+            cursor: pointer;
+            opacity: .8;
+            &:hover{
+                opacity: 1;
+            }
+
+            @include rnd {
+                position: relative;
+                left: 20%;
+            }
+        }
+
+        .formBlock{
+            display: block;
+            width: 400px;
+
+            @include rnd {
+                width: 85%;
+            }
+
+            .modelInput{
+                // margin-left: 15px;
+                border-radius: 25px;
+                border: 1px solid;
+                float: right;
+                padding-right: 10px;
+                padding-left: 10px;
+                height: 25px;
+
+                @include rnd {
+                    margin-left: 60px;
+                }
+            }
+
+            span{
+                display: inline-block;
+                vertical-align: middle; 
+                width: 315px;
+
+                @include rnd {
+                    width: 90%;
+                }
+            }
+
+            .modelBTNSub{
+                background: #040F15;
+                color: #eee;
+                border: 0;
+                outline: 0;
+                border-radius: 15px;
+                // margin-top: 15px;
+                margin-bottom:24px;
+                padding: 9px;
+                text-transform: uppercase;
+                font-size: 15px;
+                padding: 2px;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-family: HelveticaBold;
+                // margin-top: 14px;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            font-size: 12px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            height: 33px;
+            padding: 15px;
+            padding-left: 28px;
+            margin-top: 0px;
+            height: 22px;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin: 0;
+
+            @include rnd {
+                margin-bottom: 35px;
+                margin-left: -75px;
+                width: 208px;
+            }
+          }
+          
+          /* Hide the browser's default checkbox */
+          .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+          }
+          
+          /* Create a custom checkbox */
+          .checkmark {
+            position: absolute;
+            top: 1px; 
+            left: 0;
+            height: 16px;
+            width: 16px !important;
+            background-color: #eee;
+            border-radius: 15px;
+            border: 1px solid #212529;
+          }
+          
+          /* On mouse-over, add a grey background color */
+          .container:hover input ~ .checkmark {
+            background-color: #ccc;
+          }
+          
+          /* When the checkbox is checked, add a blue background */
+          .container input:checked ~ .checkmark {
+            background-color: #040F15;
+          }
+          
+          /* Create the checkmark/indicator (hidden when not checked) */
+          .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+          }
+          
+          /* Show the checkmark when checked */
+          .container input:checked ~ .checkmark:after {
+            display: block;
+          }
+          
+          /* Style the checkmark/indicator */
+          .container .checkmark:after {
+            left: 5px;
+            top: 0px;
+            width: 5px;
+            height: 13px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+          }
+    }
+}
+
+#myModalThank{
+    .modal {
+        display: none;/* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index:  9999; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: none; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+      }
+      
+      /* Modal Content/Box */
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        border: 1px solid #888;
+        width: max-content; /* Could be more or less, depending on screen size */
+        display: grid;
+        grid-template-areas: "img form";
+        grid-auto-columns: 20% 80%; 
+        padding-left: 20px;
+        padding-right: 20px;
+
+        @include rnd {
+            width:90%;
+        }
+    
+        .ModelImg{
+            grid-area: img;
+    
+            .modelImg{
+                height: 150px;
+                margin-top: -1px;
+
+                @include rnd {
+                    height: 75px;
+                }
+            }
+        }
+    
+        .ModelForm{
+            grid-area: form;
+            margin-left: 45px;
+            width: 315px;
+            position: relative;
+            left: 0px;
+
+            @include rnd {
+                width: 90%;
+            }
+    
+            label{
+                text-transform: uppercase;
+                font-size: 15px;
+            }
+    
+            h3{
+                margin-top: 34px;
+                font-family: HelveticaBold;
+            }
+            .modelClose{
+                height: 25px;
+                float: right;
+                margin-top: 20px;
+                cursor: pointer;
+                opacity: .8;
+                &:hover{
+                    opacity: 1;
+                }
+
+                @include rnd {
+                    position: relative;
+                    left: -5%;
+                }
+            }
+    
+            .formBlock{
+                display: block;
+                width: 316px;
+
+                @include rnd {
+                    width: 80%;
+                }
+
+                p{
+                    font-size: 13px;
+                }
+    
+                .modelInput{
+                    // margin-left: 15px;
+                    border-radius: 25px;
+                    border: 1px solid;
+                    float: right;
+                    padding-right: 10px;
+                    padding-left: 10px;
+                    height: 25px;
+                }
+    
+                span{
+                    display: inline-block;
+                    vertical-align: middle; 
+                    width: 315px;
+
+                    @include rnd {
+                        width: 80%;
+                    }
+                }
+    
+                .modelBTNSub{
+                    background: #040F15;
+                    color: #eee;
+                    border: 0;
+                    outline: 0;
+                    border-radius: 15px;
+                    margin-top: 15px;
+                    margin-bottom:24px;
+                    padding: 9px;
+                    text-transform: uppercase;
+                    font-size: 15px;
+                    padding: 2px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    font-family: HelveticaBold;
+                    margin-top: 14px;
+    
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            .container1 {
+                // display: block;
+                position: relative;
+                padding-left: 35px;
+                cursor: pointer;
+                font-size: 12px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                height: 33px;
+                padding: 15px;
+                padding-left: 28px;
+                margin-top: 0px;
+                height: 22px;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                width: min-content;
+              }
+              .btn{
+                line-height: 0.5 !important;
+                border-radius: 21px !important;
+              }
+              .btn-secondary{
+                color: #2d2d2d;
+                background-color: transparent;  
+                border-color: #5a5a5a;
+              }
+
+              /* Hide the browser's default checkbox */
+              .container1 input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+              }
+              
+              /* Create a custom checkbox */
+              .checkmark {
+                position: absolute;
+                top: 1px; 
+                left: 0;
+                height: 16px;
+                width: 16px !important;
+                background-color: #eee;
+                border-radius: 15px;
+                border: 1px solid #212529;
+              }
+              
+              /* On mouse-over, add a grey background color */
+              .container1:hover input ~ .checkmark {
+                background-color: #ccc;
+              }
+              
+              /* When the checkbox is checked, add a blue background */
+              .container1 input:checked ~ .checkmark {
+                background-color: #040F15;
+              }
+              
+              /* Create the checkmark/indicator (hidden when not checked) */
+              .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+              }
+              
+              /* Show the checkmark when checked */
+              .container1 input:checked ~ .checkmark:after {
+                display: block;
+              }
+              
+              /* Style the checkmark/indicator */
+              .container1 .checkmark:after {
+                left: 5px;
+                top: 0px;
+                width: 5px;
+                height: 13px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+              }
+        }
+    }
+}
+

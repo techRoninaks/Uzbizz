@@ -1,0 +1,183 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<ngx-ui-loader></ngx-ui-loader>
+<!-- <app-navbarlite class="web1-view"></app-navbarlite> -->
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light " id="navBar">
+    
+    <a class="navbar-brand"  routerLink="/"><img id="logoId" class="logoImage" src="assets/image/logo.png"></a>
+    <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="  navbar-toggler-icon ml-auto"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item active ml-auto" id="home">
+          <a class="nav-link" (click)="croll(home, 'home')" >Uzbizz <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ml-auto" id="about">
+          <a class="nav-link" (click)="croll(about, 'about')" >about</a>
+        </li>
+        <li class="nav-item ml-auto" id="leadership">
+          <a class="nav-link" (click)="croll(leadership, 'leadership')">leadership</a>
+        </li>
+        <li class="nav-item ml-auto" id="services">
+          <a class="nav-link" (click)="croll(service, 'services')">our services</a>
+        </li>
+        <li class="nav-item ml-auto" id="gallery">
+          <a class="nav-link" (click)="croll(gallery, 'gallery')">gallery</a>
+        </li>
+        <li class="nav-item ml-auto" id="insights">
+          <a class="nav-link" (click)="croll(insights, 'insights')">insights</a>
+        </li>
+        <li class="nav-item ml-auto" id="contact">
+          <a class="nav-link" (click)="croll(contact, 'contact')">contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="web-view" >
+    <!-- <router-outlet *ngIf="web"></router-outlet> -->
+    <!-- <app-nav></app-nav> -->
+    <!-- <app-sidemenu></app-sidemenu> -->
+    <div class="panel" data-div-name="home" #home>
+      <app-home></app-home>
+    </div>
+    <div class="panel" data-div-name="about" #about>
+      <app-about></app-about>
+    </div>
+    <div class="panel" data-div-name="leadership" #leadership>
+      <app-leadership ></app-leadership>
+    </div>
+    <div class="panel" data-div-name="service" #service>
+      <app-services ></app-services>
+    </div>
+    <div class="panel" data-div-name="gallery" #gallery>
+      <app-gallery ></app-gallery>
+    </div>
+    <div class="panel" data-div-name="insights"  #insights>
+      <app-insights ></app-insights>
+    </div>
+    <div class="panel" data-div-name="contact" #contact>
+      <app-contact ></app-contact>
+    </div>
+    <button (click)="croll(contact, 'contact')" id="floatEnquiyButton" class="floatEnquiry">Enquiry</button>
+</div>
+
+<section *ngIf="mobile">
+<p #home style="width:0px;margin:0px;"></p>
+<app-home class="mobile-view" id='home' *ngIf="mobile"></app-home>
+<p #about style="width:0px;margin:0px;"></p>
+<app-about class="mobile-view" id='about' *ngIf="mobile"></app-about>
+<p #leadership style="width:0px;margin:0px;"></p>
+<app-leadership class="mobile-view" #leadership *ngIf="mobile"></app-leadership>
+<p #service style="width:0px;margin:0px;"></p>
+<app-services class="mobile-view" #services *ngIf="mobile"></app-services>
+<p #gallery style="width:0px;margin:0px;"></p>
+<app-gallery class="mobile-view" #gallery *ngIf="mobile"></app-gallery>
+<p #insights style="width:0px;margin:0px;"></p>
+<app-insights class="mobile-view" #insights *ngIf="mobile"></app-insights>
+<p #contact style="width:0px;margin:0px;"></p>
+<app-contact class="mobile-view" id='contact' *ngIf="mobile"></app-contact>
+</section>
+
+
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <div class="ModelImg">
+      <img src="assets/image/WELCOME.png" class="modelImg">
+    </div>
+    <div class="ModelForm">
+      <img src="assets/image/CLOSE.png" (click)='modelSubscribeClose()' class="modelClose">
+      <div class="formBlock">
+          <h3>WELCOME</h3>
+          <form [formGroup]="messageForm1" >
+            <span>
+              <label>name</label> <input class="modelInput" formControlName="name" #modelInputName type="text">
+          </span>
+          <span>
+              <label>email</label> <input class="modelInput" formControlName="email" #modelInputEmail type="email">
+          </span>
+          <span>
+              <label>phone</label> <input class="modelInput" formControlName="phone" #modelInputPhone type="number">
+          </span>
+
+          <div class="" style="margin-top: 18px;">
+            <label class="container">I AGREE TO THE TERMS AND CONDITIONS
+              <input type="checkbox" formControlName="terms" (click) = 'checker()' id="modelInputTerms">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container" style="margin-bottom: 25px;">SUBSCRIBE TO NEWSLETTER
+              <input type="checkbox" formControlName='news' id="modelInputNews">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <button class="modelBTNSub" *ngIf="submit" (click)= "modelSubscribe()">subscribe </button>
+          </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div id="myModalThank" class="modal">
+
+  <div class="modal-content">
+    <div class="ModelImg">
+      <img src="assets/image/THANK_YOU.png"  class="modelImg">
+    </div>
+    <div class="ModelForm">
+      <img src="assets/image/CLOSE.png" (click)='modelThankClose()' class="modelClose">
+      <div class="formBlock">
+          <h3>THANK YOU</h3>
+          <span style='font-size: 12px'>
+            Thank you for your interest. Please ﬁll the form below to help us serve you better
+          </span>
+
+          <form [formGroup]="messageForm1">
+            <div class="dropdown" style="">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#" (click) = 'replaceValue("Action")'>Action</a>
+                <a class="dropdown-item" href="#" (click) = 'replaceValue("Anotheraction")'>Another action</a>
+                <a class="dropdown-item" href="#" (click) = 'replaceValue("Somethingelsehere")'>Something else here</a>
+              </div>
+            </div>
+  
+            <div class="" style="margin-top: 18px;">
+              <p>SERVICES REQUIRED</p>
+              <label class="container1">Translator
+                <input type="checkbox" formControlName="Translator">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container1">Education
+                <input type="checkbox" formControlName="Education">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container1">Sell
+                <input type="checkbox" formControlName="Sell">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container1">Guide
+                <input type="checkbox" formControlName="Guide">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container1">Buy
+                <input type="checkbox" formControlName="Buy">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </form>
+
+          <button class="modelBTNSub"  (click)= "modelDetails()">REQUEST CONSULTATION</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

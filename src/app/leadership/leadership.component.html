@@ -1,0 +1,21 @@
+<!-- <app-navbar></app-navbar>
+<app-sidemenusub></app-sidemenusub> -->
+<div class="main-section">
+  <!-- grey portion and image -->
+  <div class="trigger" inViewport [inViewportOptions]="{ threshold: [0] }" 
+  (inViewportAction)="onIntersection($event)"></div>
+  <div class="flex-grey" [@leadAnimation] = "slide" >
+    <a href="{{ dataDynamic.leadership_img }}">
+      <img class="flex-image" [@aboutAnimationFadeUp] ='state' src="{{ dataDynamic.leadership_img }}">
+    </a>
+  </div>
+
+  <!-- text area -->
+
+  <div class="flex-text">
+    <div class="child" [@aboutAnimationFadeUp] ='state'>
+        <h4>{{ dataDynamic.leadership_person }}</h4>
+        <p>{{ dataDynamic.leadership_desc }}</p>
+    </div>
+  </div>
+</div>

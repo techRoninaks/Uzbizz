@@ -1,0 +1,25 @@
+
+<!-- <app-navbar></app-navbar> -->
+<app-sidemenusub></app-sidemenusub>
+<div class="main-section" >
+    <div class="trigger" inViewport [inViewportOptions]="{ threshold: [0] }" 
+    (inViewportAction)="onIntersection($event)"></div>
+        <div class="dvAbout">
+            <div class="contain" style="padding:20px;"  [@aboutAnimationFade1] ='stat'>
+                <h3><b>ABOUT</b></h3>&nbsp;<h3 style="color:gray">US</h3>
+                <p>{{ dynamic.about_desc }}</p>
+            </div>
+            <div class="image-contain" [@aboutAnimationFade2] ='stat'>
+                <img src="assets/image/uzbizz-rengistan about.svg" >
+            </div>
+        </div>
+        <div class="dvMission" [@aboutAnimationMoveIn] ='slide'>
+            <div class="subdvMission" >
+                <h3 [@aboutAnimationFade3] ='stat'  style="color:gray" >OUR</h3>&nbsp;<h3><b [@aboutAnimationFade3] ='stat' >MISSION</b></h3>
+                <p [@aboutAnimationFade3] ='stat'  >{{ dynamic.mission_desc }}</p>
+                <br>
+                <h3 [@aboutAnimationFade4] ='stat'  style="color:gray"  >OUR</h3>&nbsp;<h3><b [@aboutAnimationFade4] ='stat' >VISION</b></h3>
+                <p [@aboutAnimationFade4] ='stat'  >{{ dynamic.vision_desc }}</p>
+            </div>
+        </div>
+</div>

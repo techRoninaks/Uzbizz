@@ -1,0 +1,221 @@
+.main-section {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'menu left main  right pad ';
+  -ms-grid-columns: 110px 30vw 30vw 30vw 5px;
+      grid-template-columns: 110px 30vw 30vw 30vw 5px;
+  font-family: HelveticaLight;
+}
+
+@media (max-width: 991px) {
+  .main-section {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+        grid-template-areas: "left" "main" "right";
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+
+.main-section span {
+  border-right: 2px solid #f2f2f2;
+  height: inherit;
+}
+
+.main-section .text-contact {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: left;
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .main-section .text-contact {
+    width: 90%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.main-section .text-contact .text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: HelveticaLight;
+  color: #959595;
+  font-size: 1.6em;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .main-section .text-contact .text {
+    padding: 20px;
+    text-align: start;
+  }
+}
+
+.main-section .text-contact .text strong {
+  font-family: HelveticaBold;
+  color: black;
+}
+
+.main-section .form-contact {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: main;
+  display: table;
+  height: 100%;
+  font-size: .74em;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .main-section .form-contact {
+    width: 90%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.main-section .form-contact form {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .main-section .form-contact form {
+    width: 90vw !important;
+  }
+}
+
+.main-section .form-contact form input {
+  border: none;
+  outline: none;
+  width: 80%;
+  padding: 15px;
+  display: block;
+  margin: auto;
+  background: #e6e6e699;
+  border-radius: 5px;
+  margin: 15px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 991px) {
+  .main-section .form-contact form input {
+    width: 100%;
+  }
+}
+
+.main-section .form-contact form textarea {
+  border: none;
+  outline: none;
+  padding: 15px;
+  width: 80%;
+  display: block;
+  margin: auto;
+  background: #e6e6e699;
+  border-radius: 5px;
+  margin: 15px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 991px) {
+  .main-section .form-contact form textarea {
+    width: 100%;
+  }
+}
+
+.main-section .form-contact form div {
+  background: wheat;
+  padding: 2px;
+  border-radius: 5px;
+  width: 80%;
+  padding-left: 10px;
+}
+
+.main-section .form-contact form .cta {
+  background: transparent;
+  border: 1px solid #7a7a7a99;
+  color: #7a7a7a99;
+  cursor: pointer;
+}
+
+.main-section .flex-grey {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: right;
+  background: #d2d2d266;
+}
+
+@media (max-width: 991px) {
+  .main-section .flex-grey {
+    width: 90vw !important;
+    display: block;
+    margin: auto;
+    margin-bottom: 35px;
+    margin-top: 35px;
+  }
+}
+
+.main-section .flex-grey .map-image {
+  margin: 5px;
+  text-align: center;
+  height: 35vh;
+}
+
+.main-section .flex-grey .map-image .map {
+  height: 100%;
+  padding: 25px;
+}
+
+@media (max-width: 991px) {
+  .main-section .flex-grey .map-image .map {
+    width: 100% !important;
+    display: block;
+    margin: auto;
+    padding: 15px;
+  }
+}
+
+.main-section .flex-grey .contact-content {
+  width: 84%;
+  height: 49vh;
+  display: block;
+  margin: auto;
+  color: #6b6b6b;
+}
+
+@media (max-width: 991px) {
+  .main-section .flex-grey .contact-content {
+    margin: 20px;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+}
+
+.main-section .flex-grey .contact-content .icon {
+  height: 20px;
+  margin: 5px;
+}
+
+.main-section .flex-grey .contact-content .icon-mail {
+  height: 16px;
+  margin: 5px;
+}
+
+.main-section .flex-grey .contact-content p {
+  font-size: .74em;
+}
+/*# sourceMappingURL=contact.component.css.map */

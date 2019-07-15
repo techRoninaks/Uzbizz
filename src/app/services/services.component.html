@@ -1,0 +1,29 @@
+<!-- <app-navbar></app-navbar>
+<app-sidemenusub></app-sidemenusub> -->
+<div class="main-section">
+    <span></span>
+    <div class="trigger" inViewport [inViewportOptions]="{ threshold: [0] }" 
+    (inViewportAction)="onIntersection($event)"></div>
+    <div class="services-text">
+        <h3 [@serviceAnimationFadeUp3] = 'state' style="color:gray;">OUR&nbsp;</h3><h3><b [@serviceAnimationFadeUp3] = 'state'>SERVICES</b></h3>
+        <p [@serviceAnimationFadeUp3] = 'state'>{{ dynamic.service_desc }}</p>
+  </div>
+  <div class="dvService-list" [@serviceAnimationSildeIn] = 'slide'>
+    <div class="contain">
+        <h2 [@serviceAnimationFadeUp] = 'state' *ngIf = "serviceContent1"><b>1</b></h2>
+        <p [@serviceAnimationFadeUp] = 'state' *ngIf = "serviceContent1">{{ serviceContent1 }}</p>
+        <h2 [@serviceAnimationFadeUp] = 'state' *ngIf = "serviceContent2"><b>2</b></h2>
+        <p [@serviceAnimationFadeUp] = 'state' *ngIf = "serviceContent2">{{ serviceContent2 }}</p>
+        <h2 [@serviceAnimationFadeUp] = 'state' *ngIf = "serviceContent3"><b>3</b></h2>
+        <p [@serviceAnimationFadeUp] = 'state' *ngIf = "serviceContent3">{{ serviceContent3 }}</p>
+        <h2 [@serviceAnimationFadeUp] = 'state' *ngIf = "serviceContent4"><b>4</b></h2>
+        <p [@serviceAnimationFadeUp] = 'state' *ngIf = "serviceContent4">{{ serviceContent4 }}</p>
+    </div>
+  </div>
+  <div class="dvService-qoute" [@serviceAnimationSildeIn2] = 'slide'>
+    <div class="quote" >
+      <img class="smallQuote" [@serviceAnimationFadeUp2] = 'state' src="assets/image/ic_uz_quote_black.png">
+      <p [@serviceAnimationFadeUp2] = 'state'>{{ dynamic.services_quote }}</p>
+      </div>
+  </div>
+</div>

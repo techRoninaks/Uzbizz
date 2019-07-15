@@ -1,0 +1,116 @@
+
+$font :  0.9em;
+
+$screen-lg-min: 991px;
+$screen-lg-max: 992px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+.main-section{
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: grid;
+    grid-template-areas: "menu left right pad";
+    grid-template-columns: 110px 45% 43% 55px;
+    z-index: 555;
+    // margin-top: 150px;
+    // margin-top: -30px;
+
+    .trigger{
+        background: transparent;
+        height: 30px;
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+    @include lg-min {
+        z-index: 115;
+        position: relative;
+        height: max-content;
+        grid-template-areas: "left"
+        "right";
+        grid-template-columns: 100%;
+    }
+    h3{
+        display: inline;
+        font-family: HelveticaBlk;
+        
+    }
+    .dvMission{
+        background:#f2f2f2;
+        padding: 40px;
+        height: 100%;
+        grid-area: right;
+        display: table;
+
+        @include lg-min {
+            margin: auto;
+            height: 100px;
+            width: 91%;
+            margin-top: 20%;
+            margin-bottom: 30px;
+        }
+
+        .subdvMission{
+            margin-top: 10%;
+            display: table-cell;
+            vertical-align: middle;
+
+            @include lg-min {
+                margin-top: 0;
+            }
+
+            p{  
+                text-align: justify;
+                font-family: HelveticaLight;
+                font-size:  $font;
+                padding-top: 10px;
+                color: #6b6b6bcc;
+            }
+        }
+    }
+    .dvAbout{
+        border-left: 2px solid #f2f2f2;
+        padding: 20px;
+        height: 100%;
+        grid-area: left;
+
+        @include lg-min {
+            padding: 0;
+        }
+
+        .contain{
+            padding: 20px;
+            width: 86%;
+            display: block;
+            margin: auto;
+            text-align:justify;
+            p{
+                font-family: HelveticaLight;
+                font-size:  $font;
+                padding-top: 10px;
+                color: #6b6b6bcc;
+            }
+
+            @include lg-min {
+            margin-top: 20px;
+            }
+        }
+
+        .image-contain{
+            margin-top: 3%;
+        }
+    }
+
+}

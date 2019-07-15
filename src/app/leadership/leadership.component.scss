@@ -1,0 +1,124 @@
+
+$screen-lg-min: 991px;
+$screen-lg-max: 992px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+
+.main-section{
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: grid;
+    grid-template-areas:'menu main right  pad';
+    grid-template-columns: 110px 45% 43% 55px;
+    // margin-top: -30px;
+
+    .trigger{
+        background: transparent;
+        height: 30px;
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+    @include lg-min {
+        height: max-content;
+        grid-template-areas: "main"
+        "right";
+        grid-template-columns: 100%;
+    }
+
+    p{
+        color:black;
+    }
+
+    .flex-grey{
+        background: #d2d2d266;
+        height: 100%;
+        width: 40vw;
+        grid-area: main;
+
+        @include lg-min {
+            width: 91%;
+            padding-top: 30px;
+            display: block;
+            margin: auto;
+            padding-bottom: 30px;
+        }
+
+        a{
+            margin: auto;
+            display: block;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+
+            .flex-image{
+                display: block;
+                margin: auto;
+                position: relative;
+                // top: 50%;
+                // transform: translate(0%,-50%);
+                width: 90%;
+                // height: 80vh;
+                // object-fit: cover;
+    
+                @include lg-min {
+                    transform: translate(0%,0%);
+                    top: 0%;
+                }
+            }
+        }
+    }
+
+    .flex-text{
+        width: 40vw;
+        grid-area: right;
+        position: relative;
+        // top: 30vh;
+        // height: 160px;
+        display: table;
+        height: 100%;
+        
+        @include lg-min {
+            display: table;
+            width: 91%;
+            display: block;
+            margin: auto;
+            padding: 42px;
+            background: #d2d2d266;
+            margin-top: 25px;
+            height: max-content;
+        }
+
+        .child{
+            display: table-cell;
+            vertical-align: middle;
+
+            h4{
+                font-family: HelveticaBold;
+            }
+    
+            p{
+                color: #959595;
+                text-align: justify;
+                text-justify: inter-word;
+                font-size: .9em;
+            }
+        }
+    }
+}
+
+.logoImage{
+    height: 100px !important;
+}

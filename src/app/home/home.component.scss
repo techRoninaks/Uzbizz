@@ -1,0 +1,188 @@
+$screen-lg-min: 991px;
+$screen-lg-max: 992px;
+$padding: 80px;
+$screen-rd:552px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin rnd {
+    @media (max-width: #{$screen-rd}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+
+.main-section{
+    width: 100%;
+    height: 100vh;
+    margin-top: 80px;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // z-index: -1;
+
+    @include lg-min {
+        height: 86vh;
+    }
+
+    .trigger{
+        background: transparent;
+        height: 30px;
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+
+    .bg-main-image{
+        width: 100%;
+        height: 100vh;
+    }
+
+    .bg1-image{
+        width: 82vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 114;
+
+        @include lg-min {
+            width: 90%;
+        }
+
+        @include rnd {
+            height: 90%;
+            width: auto;
+        }
+    }
+
+    .bg2-image{
+        width: 82vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 113;
+
+        @include lg-min {
+            width: 90%;
+        }
+
+        @include rnd {
+            height: 90%;
+            width: auto;
+        }
+    }
+
+    .bg3-image{
+        width: 82vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 112;
+
+        @include lg-min {
+            width: 90%;
+        }
+
+        @include rnd {
+            height: 90%;
+            width: auto;
+        }
+    }
+
+    .bg4-image{
+        width: 82vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 111;
+
+        @include lg-min {
+            width: 90%;
+        }
+
+        @include rnd {
+            height: 90%;
+            width: auto;
+        }
+    }
+
+    .welcome-text{
+        color: white;
+        position: absolute;
+        left: 150px;
+        top: 25vh;
+        font-size: 3.2em;
+        transform: translate(0,50%);
+        text-transform: uppercase;
+        font-family: HelveticaStdBlack;
+        z-index: 999;
+
+        @include lg-min {
+            font-size: 4em;
+            z-index: 999;
+            position: absolute;
+            left: 5%;
+        }
+
+        @include rnd {
+            font-size: 1.5em;
+            z-index: 116;
+            position: absolute;
+            left: 5%;
+        }
+    
+    }
+
+    .side-float{
+        width: max-content;
+        position: absolute;
+        bottom: 10vh;
+        left: 15%;
+        font-family: HelveticaLight;
+
+        @include lg-min {
+            display: none;
+        }
+
+        .location{
+            height: 27px;
+            float: right;
+        }
+
+        .vl {
+            color: #f2f2f299;
+            text-transform: uppercase;
+            text-align: end;
+            margin-top: 33px;
+            width: max-content;
+            font-size: .8em;
+            letter-spacing: 1px;
+          }
+
+
+    }
+}
+
+.floatEnquiry{
+    color: #f2f2f299;
+    background: transparent;
+    border: 1px solid snow;
+    position: fixed;
+    bottom: 22px;
+    right: 18px;
+    z-index: 2000;
+    border-radius: 11px;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

@@ -1,0 +1,114 @@
+.main-section {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'menu main right  pad';
+  -ms-grid-columns: 110px 45% 43% 55px;
+      grid-template-columns: 110px 45% 43% 55px;
+}
+
+@media (max-width: 991px) {
+  .main-section {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+        grid-template-areas: "main" "right";
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+
+.main-section p {
+  color: black;
+}
+
+.main-section .flex-grey {
+  background: #d2d2d266;
+  height: 100%;
+  width: 40vw;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: main;
+}
+
+@media (max-width: 991px) {
+  .main-section .flex-grey {
+    width: 91%;
+    padding-top: 30px;
+    display: block;
+    margin: auto;
+    padding-bottom: 30px;
+  }
+}
+
+.main-section .flex-grey a {
+  margin: auto;
+  display: block;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.main-section .flex-grey a .flex-image {
+  display: block;
+  margin: auto;
+  position: relative;
+  width: 90%;
+}
+
+@media (max-width: 991px) {
+  .main-section .flex-grey a .flex-image {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+    top: 0%;
+  }
+}
+
+.main-section .flex-text {
+  width: 40vw;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: right;
+  position: relative;
+  display: table;
+  height: 100%;
+}
+
+@media (max-width: 991px) {
+  .main-section .flex-text {
+    display: table;
+    width: 91%;
+    display: block;
+    margin: auto;
+    padding: 42px;
+    background: #d2d2d266;
+    margin-top: 25px;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+}
+
+.main-section .flex-text .child {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.main-section .flex-text .child h4 {
+  font-family: HelveticaBold;
+}
+
+.main-section .flex-text .child p {
+  color: #959595;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: .9em;
+}
+
+.logoImage {
+  height: 100px !important;
+}
+/*# sourceMappingURL=leadership.component.css.map */

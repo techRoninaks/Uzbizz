@@ -1,0 +1,60 @@
+.sidemenu-container {
+  width: 60px;
+  background: transparent;
+  position: absolute;
+  bottom: 7.5vh;
+  left: 27px;
+}
+
+@media (max-width: 991px) {
+  .sidemenu-container {
+    display: none;
+  }
+}
+
+.sidemenu-container p {
+  color: #7a7a7a99;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  text-transform: uppercase;
+  font-size: .8em;
+  letter-spacing: 1px;
+}
+
+.sidemenu-container .vl {
+  position: relative;
+  width: 1px;
+  height: 90px;
+  background-color: #7a7a7a99;
+  overflow: hidden;
+  left: 38%;
+  margin-bottom: 10px;
+}
+
+.sidemenu-container .vl span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  -webkit-animation: scrollInfinite 2s infinite ease-in-out;
+  animation: scrollInfinite 2s infinite ease-in-out;
+}
+
+.sidemenu-container .icon-container {
+  position: relative;
+  left: -3px;
+}
+
+.sidemenu-container .icon-container .icon-fb {
+  width: 23px;
+  margin: 15px;
+  padding: 2px;
+}
+/*# sourceMappingURL=sidemenusub.component.css.map */

@@ -1,0 +1,158 @@
+.main-section {
+  width: 100%;
+  height: 100vh;
+  margin-top: 80px;
+}
+
+.main-section .bg-main-image {
+  width: 100%;
+  height: 100vh;
+}
+
+.main-section .bg1-image {
+  width: 65vw;
+  position: absolute;
+  bottom: -95px;
+  right: -94px;
+  z-index: 114;
+}
+
+@media (max-width: 991px) {
+  .main-section .bg1-image {
+    width: 90%;
+  }
+}
+
+@media (max-width: 552px) {
+  .main-section .bg1-image {
+    height: 90%;
+    width: auto;
+  }
+}
+
+.main-section .bg2-image {
+  width: 65vw;
+  position: absolute;
+  bottom: -95px;
+  right: -94px;
+  z-index: 113;
+}
+
+@media (max-width: 991px) {
+  .main-section .bg2-image {
+    width: 90%;
+  }
+}
+
+@media (max-width: 552px) {
+  .main-section .bg2-image {
+    height: 90%;
+    width: auto;
+  }
+}
+
+.main-section .bg3-image {
+  width: 65vw;
+  position: absolute;
+  bottom: -95px;
+  right: -94px;
+  z-index: 112;
+}
+
+@media (max-width: 991px) {
+  .main-section .bg3-image {
+    width: 90%;
+  }
+}
+
+@media (max-width: 552px) {
+  .main-section .bg3-image {
+    height: 90%;
+    width: auto;
+  }
+}
+
+.main-section .bg4-image {
+  width: 65vw;
+  position: absolute;
+  bottom: -95px;
+  right: -94px;
+  z-index: 111;
+}
+
+@media (max-width: 991px) {
+  .main-section .bg4-image {
+    width: 90%;
+  }
+}
+
+@media (max-width: 552px) {
+  .main-section .bg4-image {
+    height: 90%;
+    width: auto;
+  }
+}
+
+.main-section .welcome-text {
+  color: white;
+  position: absolute;
+  left: 150px;
+  top: 25vh;
+  font-size: 3.2em;
+  -webkit-transform: translate(0, 50%);
+          transform: translate(0, 50%);
+  text-transform: uppercase;
+  font-family: HelveticaStdBlack;
+}
+
+@media (max-width: 991px) {
+  .main-section .welcome-text {
+    font-size: 4em;
+    z-index: 116;
+    position: absolute;
+    left: 5%;
+  }
+}
+
+@media (max-width: 552px) {
+  .main-section .welcome-text {
+    font-size: 1.5em;
+    z-index: 116;
+    position: absolute;
+    left: 5%;
+  }
+}
+
+.main-section .side-float {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  bottom: 10vh;
+  left: 15%;
+  font-family: HelveticaLight;
+}
+
+@media (max-width: 991px) {
+  .main-section .side-float {
+    display: none;
+  }
+}
+
+.main-section .side-float .location {
+  height: 27px;
+  float: right;
+}
+
+.main-section .side-float .vl {
+  color: #f2f2f299;
+  text-transform: uppercase;
+  text-align: end;
+  margin-top: 33px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: .8em;
+  letter-spacing: 1px;
+}
+/*# sourceMappingURL=home.component.css.map */

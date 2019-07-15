@@ -1,0 +1,113 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body, html {
+    height: 100%;
+    margin: 0 auto;
+}
+
+@font-face {
+    font-family: HelveticaBlk;
+    src: url(assets/fonts/HELVETICALTSTD-ROMAN.OTF);
+  }
+
+  @font-face {
+    font-family: HelveticaBold;
+    src: url(assets/fonts/HELVETICALTSTD-BOLD.OTF);
+  }
+
+
+  @font-face {
+    font-family: HelveticaLight;
+    src: url(assets/fonts/HELVETICALTSTD-ROMAN.OTF);
+  }
+
+  @font-face {
+    font-family: HelveticaStdBlack;
+    src: url(assets/fonts/HELVETICALTSTD-BLK.OTF);
+  }
+
+  @keyframes scrollInfinite {
+    0% {
+     transform:translateY(-100%)
+    }
+    50% {
+     transform:translateY(0)
+    }
+    100% {
+     transform:translateY(100%)
+    }
+   }
+
+   @keyframes bounceInfinite {
+    0% {
+     transform:translateY(-20px)
+    }
+    50% {
+     transform:translateY(0)
+    }
+    100% {
+     transform:translateY(-20px)
+    }
+  }
+
+  $screen-lg-min: 991px;
+  $screen-lg-max: 992px;
+  
+  @mixin lg-min {
+      @media (max-width: #{$screen-lg-min}) {
+          @content;
+      }
+   }
+  
+   @mixin lg-max {
+      @media (min-width: #{$screen-lg-max}) {
+          @content;
+      }
+   }
+   
+body {
+    // font-family: 'Montserrat';
+    font-size: 18px;
+    // overflow: hidden;
+    // background: url("assets/image/uz-bg.jpg");
+    font-family: HelveticaLight;
+    background: #040F15;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 96%;
+    margin: 0 auto;
+    padding: 1.3em;
+    display: grid;
+    position: absolute;
+    grid-template-columns: 30% auto;
+
+    a {
+        color: white;
+    }
+}
+// .example-classname{
+//   background: chocolate;
+//   width: 100vw;
+//   height: 100vh;
+//   border: 2px solid red;
+// }
+
+.trigger{
+  background: transparent !important;
+  height: 30px !important;
+  z-index: 0 !important;
+  position: absolute !important;
+  width: 100% !important;
+  margin-top: 103px !important;
+
+  @include lg-min {
+    height: 0px !important;
+  }
+}

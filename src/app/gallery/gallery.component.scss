@@ -1,0 +1,242 @@
+$screen-lg-min: 991px;
+$screen-lg-max: 992px;
+$padding: 80px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+
+.main-section{
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: grid;
+    grid-template-areas: "menu main pad right";
+    grid-template-columns: 110px 20vw 20px 68vw;
+    // margin-top: -30px;
+
+    .trigger{
+        background: transparent;
+        height: 30px;
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+        @include lg-min {
+            height: max-content;
+            grid-template-areas: "main"
+            "right";
+            grid-template-columns: 100%;
+        }
+
+    a{
+        text-decoration: none;
+    }
+
+    .flex-grey{
+        background: #d2d2d266;
+        height: 100%;
+        width: 20vw;
+        grid-area: main;
+        display: table;
+        min-width: max-content;
+
+        @include lg-min {
+            background: white;
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+            width: max-content;
+        }
+
+        .child{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+
+
+            h3{
+                font-family: HelveticaLight;
+                color: #959595;
+                text-transform: uppercase;
+            }
+
+            strong{
+                font-family: HelveticaBold;
+                color: black;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .flex-gallery{
+        grid-area: right;
+        width: 65vw;
+        font-size: .9em;
+
+        @include lg-min {
+            display: block;
+            margin: auto;
+            width: 80vw;
+        }
+
+        .gallery{
+            height: inherit;
+            width: inherit;
+            display: grid;
+            grid-template-areas: "nav nav nav"
+            "img img img"
+            "cont cont cont";
+
+            .navigation{
+                width: max-content;
+                margin: auto;
+                height: 10vh;
+                grid-area: nav;
+                display: table;
+                z-index: 999;
+
+                @include lg-min {
+                    display: block;
+                    margin: auto;
+                    padding: 15px;
+                    width: max-content;
+                }
+
+                .child{
+                    display: table-cell;
+                    vertical-align: middle;
+                    a{
+                        cursor: pointer;
+                    }
+
+                    .nav-icon{
+                        height: 8px;
+                        padding-right: 15px;
+                        opacity: .4;
+                    }
+    
+                    .active{
+                        height: 12px;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .images-panel{
+                width: 85%;
+                height: 63vh;
+                grid-area: img;
+                -webkit-box-shadow: 0px 0px 14px -3px rgba(69,69,69,0.73);
+                -moz-box-shadow: 0px 0px 14px -3px rgba(69,69,69,0.73);
+                box-shadow: 0px 0px 14px -3px rgba(69,69,69,0.73);
+                display: block;
+                margin: auto;
+                z-index: 999;
+                position: relative;
+
+                @include lg-min {
+                    width: 100%;
+                }
+
+                .images-display{
+                    height: 50%;
+                    width: 33.33%;
+                    object-fit: cover;
+                    // transition: 250ms;
+                    // &:hover {
+                    //     transform: scale(2);
+                    //     transition: 500ms;
+                    //     z-index: 1111;
+                    // }
+                }
+            }
+            .zoomer{
+                transform: scale(2);
+                z-index: 1111;
+                position: absolute;
+                top: 25%;
+                left: 25%;
+                width: 50% !important;
+            }
+
+            .controls{
+                width: 85%;
+                height: 10vh;
+                grid-area: cont;
+                display: block;
+                margin: auto;
+                z-index: 99;
+
+                .previous{
+                    width: max-content;
+                    height: inherit;
+                    float: left;
+                    display: table;
+                    text-transform: uppercase;
+                    color: #959595;
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    span{
+                        display: table-cell;
+                        vertical-align: middle;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+
+                        @include lg-min {
+                            font-size: .8em;
+                        }
+
+                        .dash{
+                            width: 50px;
+                            height: 1px;
+                            opacity: .4;
+                        }
+                    }
+
+                }
+                .next{
+                    width: max-content;
+                    height: inherit;
+                    float: right;
+                    display: table;
+                    text-transform: uppercase;
+                    color: #959595;
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    span{
+                        display: table-cell;
+                        vertical-align: middle;
+
+                        @include lg-min {
+                            font-size: .8em;
+                        }
+
+                        .dash{
+                            width: 50px;
+                            height: 1px;
+                            opacity: .4;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    
+}

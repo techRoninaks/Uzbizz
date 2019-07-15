@@ -1,0 +1,21 @@
+<!-- <app-nav [@homeAnimation5]='state1'></app-nav> -->
+<app-sidemenu [@homeAnimation5]='state1'></app-sidemenu>
+<div class="main-section">
+
+<div class="trigger" inViewport [inViewportOptions]="{ threshold: [0] }" 
+(inViewportAction)="onIntersection($event)"></div>
+  <img class="bg-main-image" [@homeAnimation6]='state' src="{{dynamic.home_img}}">
+  <img class="bg1-image" [@homeAnimation1]='state' src="assets/image/bg1.png">
+  <img class="bg2-image" [@homeAnimation2]='state' src="assets/image/bg2.png">
+  <img class="bg3-image" [@homeAnimation3]='state' src="assets/image/bg3.png">
+  <img class="bg4-image" [@homeAnimation4]='state' src="assets/image/bg4.png">
+  <img class="bg4-image" [@homeAnimation4]='state' src="assets/image/bg5.png">
+  <h1 class="welcome-text" [@homeAnimation5]='state1'>{{welcomeText1}}<br>{{welcomeText2}}</h1>
+  <!-- <h1 class="welcome-text" [@homeAnimation5]='state1'>{{dynamic.home_title}}</h1> -->
+
+  <div class="side-float" [@homeAnimation5]='state1'>
+    <img class="location" src="assets/image/ic_uz_location.png">
+    <div class="vl">{{dynamic.home_location}}</div>
+  </div>
+  
+</div>

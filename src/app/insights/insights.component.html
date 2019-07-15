@@ -1,0 +1,30 @@
+<!-- <app-navbar></app-navbar>
+<app-sidemenusub></app-sidemenusub> -->
+<div class="main-section" >
+    <div class="trigger" inViewport [inViewportOptions]="{ threshold: [0] }" 
+    (inViewportAction)="onIntersection($event)"></div>
+    <div class="dvInsight" [@insightAnimationSildeIn1] = 'slide'>
+      <div class="text">
+        <h4><b [@insightAnimationFadeUp1] = 'state'>INSIGHTS</b></h4>
+        <p style="font-style:italic;" [@insightAnimationFadeUp1] = 'state'>{{ dynamic.insights_subheading }}</p>
+      </div>
+    </div>
+    <div class="dvInsight1" [@insightAnimationSildeIn2] = 'slide'>
+      <div class="text">
+        <h4 [@insightAnimationFadeUp2] = 'state' *ngIf='heading1'>{{heading1}}</h4>
+        <p [@insightAnimationFadeUp2] = 'state' *ngIf='insightContent1'>{{ insightContent1}}</p>
+        <br>
+        <h4 [@insightAnimationFadeUp2] = 'state' *ngIf='heading2'>{{heading2}}</h4>
+        <p [@insightAnimationFadeUp2] = 'state' *ngIf='insightContent2'>{{ insightContent2 }}</p> 
+        <br>
+        <h4 [@insightAnimationFadeUp2] = 'state' *ngIf='heading3'>{{heading3}}</h4>
+        <p [@insightAnimationFadeUp2] = 'state' *ngIf='insightContent3'>{{ insightContent3 }}</p>
+      </div>
+    </div>
+    <div class="quote">
+      <div class="text">
+          <img class="smallQuote" [@insightAnimationFadeUp3] = 'state' src="assets/image/ic_uz_quote_black.png">
+          <p [innerHTML]="quotetext" [@insightAnimationFadeUp3] = 'state'></p>
+      </div>
+    </div>
+</div>

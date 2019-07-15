@@ -1,0 +1,85 @@
+$screen-lg-min: 991px;
+$screen-lg-max: 992px;
+
+@mixin lg-min {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+ @mixin lg-max {
+    @media (min-width: #{$screen-lg-max}) {
+        @content;
+    }
+ }
+
+ @keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.sidemenu-container{
+    width: 60px;
+    background: transparent;
+    position: fixed;
+    bottom: 7.5vh;
+    left: 27px;
+    animation-name: fadeIn;
+    animation-duration: 10s;
+
+    @include lg-min {
+      display: none;
+    }
+
+    p{
+        color: #7a7a7a99;;
+        // writing-mode: sideways-lr;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        text-transform: uppercase;
+        font-size: .8em;
+        letter-spacing: 1px;
+    }
+
+    
+    .vl {
+      position: relative;
+      width: 1px;
+      height: 90px;
+      background-color: #7a7a7a99;
+      overflow: hidden;
+      left: 38%;
+      margin-bottom: 10px;
+
+
+      span{
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #f0f0f0;
+          width: 100%;
+          height: 100%;
+          transform: translateY(-100%);
+          -webkit-transform: translateY(-100%);
+          -webkit-animation: scrollInfinite 2s infinite ease-in-out;
+          animation: scrollInfinite 2s infinite ease-in-out;
+      }
+    }
+
+      .icon-container{
+        position: relative;
+        left: -3px;
+    
+        .icon-fb{
+            width: 23px;
+            margin: 15px;
+            padding: 2px;
+          }
+      }
+}
+
+.easeIn{
+  opacity: 1;
+  transition: 6000ms;
+}
+

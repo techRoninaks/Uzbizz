@@ -1,0 +1,46 @@
+<!-- <app-navbar></app-navbar>
+<app-sidemenusub></app-sidemenusub> -->
+<div class="main-section">
+    <div class="trigger" inViewport [inViewportOptions]="{ threshold: [0] }" 
+    (inViewportAction)="onIntersection($event)"></div>
+    <div class="flex-grey" [@galleryAnimationSlideIn] = 'slide'>
+      <div class="child" [@aboutAnimationFadeUp5]='state' >
+        <h3>Our <strong> Gallery</strong></h3>
+      </div>
+    </div>
+
+    <div class="flex-gallery">
+      <div class="gallery">
+        <div class="navigation">
+          <div class="child" >
+            <a  (click) = 'getPage(1)' ><img class="nav-icon" id="1" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(2)' ><img class="nav-icon" id="2" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(3)' ><img class="nav-icon" id="3" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(4)' ><img class="nav-icon" id="4" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(5)' ><img class="nav-icon" id="5" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(6)' ><img class="nav-icon" id="6" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(7)' ><img class="nav-icon" id="7" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(8)' ><img class="nav-icon" id="8" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(9)' ><img class="nav-icon" id="9" src="assets/image/ic_uz_circle_black.png"></a>
+            <a  (click) = 'getPage(10)'><img class="nav-icon" id="10" src="assets/image/ic_uz_circle_black.png"></a>
+          </div>
+        </div>
+        <div class="images-panel">
+          <img class="images-display" id="image1" [@aboutAnimationFadeUp1]='state' (click) = "imageZoomer('image1')" src="{{image1}}"> 
+          <img class="images-display" id="image2" [@aboutAnimationFadeUp2]='state' (click) = "imageZoomer('image2')" src="{{image2}}"> 
+          <img class="images-display" id="image3" [@aboutAnimationFadeUp3]='state' (click) = "imageZoomer('image3')" src="{{image3}}"> 
+          <img class="images-display" id="image4" [@aboutAnimationFadeUp2]='state' (click) = "imageZoomer('image4')" src="{{image4}}"> 
+          <img class="images-display" id="image5" [@aboutAnimationFadeUp3]='state' (click) = "imageZoomer('image5')" src="{{image5}}"> 
+          <img class="images-display" id="image6" [@aboutAnimationFadeUp4]='state' (click) = "imageZoomer('image6')" src="{{image6}}"> 
+        </div>
+        <div class="controls">
+          <div class="previous" (click) = 'loadPre()'>
+            <span><img class="dash" src="assets/image/dash.png"> load previous</span>
+          </div>
+          <div class="next" (click) = 'loadNext()'>
+            <span>load next<img class="dash" src="assets/image/dash.png"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
